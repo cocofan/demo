@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Bootstrap 101 Template</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="css/bootstrap.css">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	</head>
+	<style type="text/css">
+		.nav li i {
+			margin-right: 10px;
+		}
+		
+		.navbar-nav>li .user-link {
+			/*1. 优先级  起名覆盖*/
+			padding: 0;
+			margin-top: 5px;
+		}
+		
+		.user-img {
+			width: 40px;
+		}
+		
+		
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+					<a class="navbar-brand" href="#">OA后台</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="index.html"><i class="glyphicon glyphicon-home"></i>首页</a>
+						</li>
+						<li>
+							<a href="user.html"><i class="glyphicon glyphicon-user"></i>用户管理</a>
+						</li>
+						<li>
+							<a href="content.html"><i class="glyphicon glyphicon-list-alt"></i>内容管理</a>
+						</li>
+						<li>
+							<a href="tag.html"><i class="glyphicon glyphicon-tag"></i>标签管理</a>
+						</li>
+						<li class="active">
+							<a href="email.html"><i class="glyphicon glyphicon-envelope"></i>我的邮箱<span class="badge" style="background-color: red;color: #fff;">4</span></a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#" class="user-link"><img src="images/touxiang.jpg" class="user-img" /></a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">管理员 <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-screenshot"></i>前台首页</a>
+								</li>
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-user"></i>个人主页</a>
+								</li>
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-cog"></i>个人设置</a>
+								</li>
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-credit-card"></i>账户中心</a>
+								</li>
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-heart"></i>我的收藏</a>
+								</li>
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-off"></i>退出</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+		</nav>
+		
+		<div class="container">
+			<div class="col-md-3">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  <div class="panel panel-default">
+				    <div class="panel-heading" role="tab" id="headingOne">
+				      <h4 class="panel-title">
+				        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				          		最近联系人
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+				      <div class="panel-body">
+			        	<ul class="list-group">
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        	</ul>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="panel panel-default">
+				    <div class="panel-heading" role="tab" id="headingTwo">
+				      <h4 class="panel-title">
+				        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				          		我的同事
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+				      <div class="panel-body">
+				        <ul class="list-group">
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        	</ul>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="panel panel-default">
+				    <div class="panel-heading" role="tab" id="headingThree">
+				      <h4 class="panel-title">
+				        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+				          		我的客户
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+				      <div class="panel-body">
+				        <ul class="list-group">
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        		<li class="list-group-item"><i class="glyphicon glyphicon-star"></i> 赵飞燕</li>
+			        	</ul>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Panel title</h3>
+				  </div>
+				    <ul class="list-group">
+				    	<li class="list-group-item"><a href="##"><i></i>响应式Web设计工作原理<span class="pull-right">1998/01/01</span></a></li>
+				    	<li class="list-group-item"><a href="##"><i></i>响应式Web设计工作原理<span class="pull-right">1998/01/01</span></a></li>
+				    	<li class="list-group-item"><a href="##"><i></i>响应式Web设计工作原理<span class="pull-right">1998/01/01</span></a></li>
+				    	<li class="list-group-item"><a href="##"><i></i>响应式Web设计工作原理<span class="pull-right">1998/01/01</span></a></li>
+				    	<li class="list-group-item"><a href="##"><i></i>响应式Web设计工作原理<span class="pull-right">1998/01/01</span></a></li>
+				    	<li class="list-group-item"><a href="##"><i></i>响应式Web设计工作原理<span class="pull-right">1998/01/01</span></a></li>
+				    </ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<nav aria-label="Page navigation" class="text-center">
+			  <ul class="pagination">
+			    <li>
+			      <a href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li><a href="#">1</a></li>
+			    <li><a href="#">2</a></li>
+			    <li><a href="#">3</a></li>
+			    <li><a href="#">4</a></li>
+			    <li><a href="#">5</a></li>
+			    <li>
+			      <a href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+			<div class="row text-center">
+				<p>联系方式： 123456798</p>
+			</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-3.1.0.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.js"></script>
+		<script type="text/javascript">
+			
+			$('#btn').click(function(){
+				var html = $('#tag').html();
+				var $tag = $(html);
+				$tag.find("strong").html($('#txt').val()).end().appendTo($('#taglist'));
+			})
+			
+			
+		</script>
+	</body>
+</html>

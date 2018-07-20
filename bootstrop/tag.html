@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Bootstrap 101 Template</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="css/bootstrap.css">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	</head>
+	<style type="text/css">
+		.nav li i {
+			margin-right: 10px;
+		}
+		
+		.navbar-nav>li .user-link {
+			/*1. 优先级  起名覆盖*/
+			padding: 0;
+			margin-top: 5px;
+		}
+		
+		.user-img {
+			width: 40px;
+		}
+		
+		.page-header{
+			margin-top: 0;
+		}
+		
+		#taglist{
+			padding: 10px 0 0 30px;
+		}
+		
+		.alert{
+			margin-right: 10px;
+		}
+		
+		#txt{
+			border-top-right-radius:4px;
+			border-bottom-right-radius:4px;
+		}
+		
+		#btn{
+			border-top-left-radius:4px;
+			border-bottom-left-radius:4px;
+		}
+	</style>
+
+	<body>
+
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+					<a class="navbar-brand" href="#">OA后台</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="index.html"><i class="glyphicon glyphicon-home"></i>首页</a>
+						</li>
+						<li>
+							<a href="user.html"><i class="glyphicon glyphicon-user"></i>用户管理</a>
+						</li>
+						<li>
+							<a href="content.html"><i class="glyphicon glyphicon-list-alt"></i>内容管理</a>
+						</li>
+						<li class="active">
+							<a href="tag.html"><i class="glyphicon glyphicon-tag"></i>标签管理</a>
+						</li>
+						<li>
+							<a href="email.html"><i class="glyphicon glyphicon-envelope"></i>我的邮箱<span class="badge" style="background-color: red;color: #fff;">4</span></a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#" class="user-link"><img src="images/touxiang.jpg" class="user-img" /></a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">管理员 <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-screenshot"></i>前台首页</a>
+								</li>
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-user"></i>个人主页</a>
+								</li>
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-cog"></i>个人设置</a>
+								</li>
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-credit-card"></i>账户中心</a>
+								</li>
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-heart"></i>我的收藏</a>
+								</li>
+								<li>
+									<a href="#"><i class="glyphicon glyphicon-off"></i>退出</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+		</nav>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="page-header">
+					  <h4>TAG标签管理</h4>
+					</div>
+					<div class="col-lg-10">
+					    <div class="input-group">
+					      <input id="txt" type="text" class="form-control" placeholder="请输入要添加的标签">
+					      <span class="input-group-btn col-md-push-1">
+					        <button class="btn btn-default" type="button" id="btn">添加</button>
+					      </span>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="taglist">
+				<div class="alert alert-info alert-dismissible pull-left" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<strong>bootstrop</strong>
+				</div>
+				<div class="alert alert-info alert-dismissible pull-left" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<strong>Javastrip</strong>
+				</div>
+				<div class="alert alert-info alert-dismissible pull-left" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<strong>前端课程</strong>
+				</div>
+				<div id="tag" style="display: none;">
+					<div class="alert alert-info alert-dismissible pull-left" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<strong>前端课程</strong>
+					</div>
+				</div>
+				
+			</div>
+			<div class="row text-center">
+				<p>联系方式： 123456798</p>
+			</div>
+		</div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-3.1.0.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.js"></script>
+		<script type="text/javascript">
+			
+			$('#btn').click(function(){
+				var html = $('#tag').html();
+				var $tag = $(html);
+				$tag.find("strong").html($('#txt').val()).end().appendTo($('#taglist'));
+			})
+			
+			
+		</script>
+	</body>
+</html>
