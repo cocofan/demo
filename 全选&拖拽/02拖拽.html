@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#box{width: 200px;height: 200px;background: greenyellow;position: absolute;top: 100px;left: 100px;}
+			#box1{width: 100px;height: 100px;background: yellow;position: absolute;top: 500px;left: 600px;}
+			#box h2{width: 200px;background: blue;}
+		</style>
+		<script src="js/hxsd_tools.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<h2>我是标题</h2>
+		</div>
+		<div id="box1"></div>
+	</body>
+	<script type="text/javascript">
+		var oBox=document.getElementById("box");
+		var oBox1=document.getElementById("box1");
+		var oTitle=oBox.children[0];
+		drag(oBox,oTitle);
+		drag(oBox1)
+		function drag(obj,title){
+			var title=title||obj;
+			title.onmousedown=function(ev){//按下鼠标：防止跳动，用鼠标的横坐标-盒子的横坐标
+				var disX=ev.clientX-obj.offsetLeft;
+				var disY=ev.clientY-obj.offsetTop;
+				document.onmousemove=function(ev){//鼠标按下并移动时：left=鼠标横坐标-disY
+					ev.preventDefault();
+					var l=ev.clientX-disX;
+					var t=ev.clientY-disY;
+					if(l<0)l=0;//不让盒子移出界面：左上  负
+					if(t<0)t=0;
+					var maxL=document.documentElement.clientWidth-obj.offsetWidth;//left为盒子外宽
+					var maxT=document.documentElement.clientHeight-obj.offsetHeight;
+					if(l>maxL)l=maxL;
+					if(t>maxT)t=maxT;//右下    设置最大值   盒子移动到最大值时让他=最大值；
+					obj.style.left=l+"px";
+					obj.style.top=t+"px";
+				}
+				document.onmouseup=function(){//当鼠标抬起的时候    move  up为空
+					document.onmousemove=document.onmouseup=null;
+				}
+			}
+		}
+		
+	</script>
+</html>

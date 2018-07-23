@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" id="checkAll"/>全选<br /><br />
+		<input type="checkbox" class="item"/>子选项1
+		<input type="checkbox" class="item"/>子选项2
+		<input type="checkbox" class="item"/>子选项3
+		<input type="checkbox" class="item"/>子选项4
+	</body>
+	<script type="text/javascript">
+		var checkAll = document.getElementById("checkAll");
+		var checkItem = document.getElementsByClassName('item');
+		checkAll.onclick = function(){		//点击全选按钮，判断自己的选中状态
+			if(this.checked){	//如果选中了， 让所有子选项都选中
+				for(var i=0; i<checkItem.length; i++){
+					checkItem[i].checked = true
+				}
+			}else{
+				for(var i=0; i<checkItem.length; i++){		//全选没选中，所有子选项都不选中
+					checkItem[i].checked = false
+				}
+			}
+		};
+		for(var i=0; i<checkItem.length; i++){		//给每个子选项添加点击事件
+			checkItem[i].onclick = function(){		//
+				checkAll.checked = isAllChecked()
+			}
+		}
+		function isAllChecked(){
+			for(var i=0; i<checkItem.length; i++){
+				/*if(!checkItem[i].checked){		//如果有一个没选中
+					return false
+				}*/
+				if(checkItem[i].checked == false){	//如果有一个没选中   或者   如果有一个的选中状态是假
+					return false
+				}
+			};
+			return true
+		}
+		
+		
+		
+		
+		
+		var a = false;
+		
+		/*if(a == false){
+			console.log("false")
+		}else{
+			console.log("true")
+		}*/
+		
+		if(!a){
+			console.log("false")
+		}else{
+			console.log("true")
+		}
+	</script>
+</html>
