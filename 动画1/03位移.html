@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: #000;
+			}
+			.wrap{
+				width: 980px;
+				height: 500px;
+				margin: 200px auto;
+				position: relative;
+			}
+			.wrap>div{
+				width: 196px;
+				height: 100px;
+				position: absolute;
+				background: #fff;
+			}
+			.wrap .pic{
+				height: 100%;
+			}
+		</style>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div class="wrap">
+			<!--<div><div class="pic"></div></div>-->
+		</div>
+	</body>
+	<script type="text/javascript">
+		for(var y=0;y<5;y++){
+			for(var x=0;x<5;x++){
+				$('<div><div class="pic"></div></div>').css({
+					"top":y*100,
+					"left":x*196
+				}).appendTo('.wrap')
+			}
+		}
+		function showSmall(){
+			$('.pic').each(function(i){
+				var x=i%5;
+				var y=parseInt(i/5);
+				$(this).css({
+					"background-image":"url(img/"+i+".jpg)",
+					"background-size":"cover",
+					"transition":"transform 1s",
+					"transform":"scale(0.95,0.9)"
+				})
+				var d=Math.random()*60-30;
+				$(this).parent().css({
+					"transform":"translate("+(x-2)*50+"px,"+(y-2)*50+"px) rotate("+d+"deg)",
+					"transition":"transform 1s"
+				})
+			})
+		}
+		showSmall()
+		function showBig(n){
+			$('.pic').each(function(i){
+				var x=i%5;
+				var y=parseInt(i/5);
+				$(this).css({
+					"background-image":"url(img/"+n+".jpg)",
+					"background-size":"auto",
+					"background-position":x*-196+"px "+y*-100+"px",
+					"transform":"scale(1)"
+				})
+				$(this).parent().css({
+					"transform":"translate(0,0)"
+				})
+			})
+		}
+		
+		var isShowSmall=true;
+		$('.pic').click(function(){
+			var index=$(this).parent().index();
+			if(isShowSmall){
+				showBig(index)
+			}else{
+				showSmall()
+			}
+			isShowSmall=!isShowSmall
+		})
+	</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.s_pic{width: 320px;height: 200px;position: relative;top: 200px;left: 100px;}
+			.s_pic .handle{display: block;width: 100px;height: 100px;background: #f00;opacity: 0.3;position: absolute;top: 0;left: 0;display: none;cursor: move;}
+			.s_pic img{width: 100%;height: 100%;}
+			.b_pic{width: 300px;height: 300px;position: absolute;left: 500px;top: 200px;overflow: hidden;display: none;}
+			.b_pic img{position: absolute;top: 0;left: 0;}
+		</style>
+		<script src="jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div class="s_pic">
+			<img src="lbjn.mini.jpg"/>
+			<span class="handle"></span>
+		</div>
+		<div class="b_pic">
+			<img src="lbjn.mini.jpg"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(".s_pic").mousemove(function(ev){// 第一步  当鼠标移动的时候		先确定鼠标坐标
+			var l=ev.pageX-$(".s_pic").position().left-$('.handle').outerWidth()/2;
+			var t=ev.pageY-$(".s_pic").position().top-$('.handle').outerHeight()/2	
+			
+			if(l<0)l=0;			// 第二步  限定小方块活动范围   最小不能小于0    最大不能大于盒子宽高-放大镜宽高
+			if(t<0)t=0;
+			if( l>$(".s_pic").outerWidth()-$('.handle').outerWidth() ){
+				l=$(".s_pic").outerWidth()-$('.handle').outerWidth();
+			}
+			if( t>$(".s_pic").outerHeight()-$('.handle').outerHeight() ){
+				t=$(".s_pic").outerHeight()-$('.handle').outerHeight();
+			}
+			
+			
+			$('.handle').show().css({  // 第三步  确定放大镜与大盒子最终宽高
+				"left":l,
+				"top":t
+			})
+			$('.b_pic').show();
+			$('.b_pic img').css({
+				"left":-l*3,
+				"top":-t*3,
+			})
+		})
+		$(".s_pic").mouseleave(function(ev){   //第四部  当鼠标离开的时候   放大镜与大盒子都隐藏起来
+			$('.handle,.b_pic').hide()
+		})
+	</script>
+</html>

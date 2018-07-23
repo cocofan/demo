@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;
+			}
+			#wrap{
+				width: 980px;
+				height: 500px;
+				/*margin: 200px auto;*/
+				position: absolute;
+				left: 50%;
+				top: 200px;
+				margin-left: -490px;
+			}
+		</style>
+		<script src="../../js/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div id="wrap"></div>
+	</body>
+	<script type="text/javascript">
+		var xNum=20;
+		var yNum=20;
+		var w=980/xNum;
+		var h=500/yNum;
+		for(var i=0,len=xNum*yNum;i<len;i++){
+			var x=i%xNum;
+			var y=parseInt(i/xNum)
+			$("<div>").css({
+				"width":w,
+				"height":h,
+				"position":"absolute",
+				"left":x*w,
+				"top":y*h,
+				"background-image":"url(../img/11.jpg)",
+				"background-position":""+w*-x+"px "+y*-h+"px"
+			}).appendTo('#wrap')
+		}
+		
+		
+		
+		
+		
+		function disperse(){
+			$('#wrap div').each(function(){
+				var l=Math.random()*6000-3000;
+				var t=Math.random()*6000-3000;
+				var time=Math.random()*2+1;
+				$(this).css({
+					"transition":"all "+time+"s ease-in",
+					"transform":"translate("+l+"px,"+t+"px)",
+					"opacity":0
+				})
+			})
+		}
+		
+		function together(){
+			$('#wrap div').each(function(){
+				$(this).css({
+					"transform":"translate(0,0)",
+					"opacity":1
+				})
+			})
+		}
+		
+		
+		var onOff=true;
+		$(document).click(function(){
+			if(onOff){
+				disperse();
+			}else{
+				together()
+			}
+			onOff=!onOff;
+		})
+	</script>
+</html>

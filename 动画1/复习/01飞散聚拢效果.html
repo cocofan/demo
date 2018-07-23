@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding: 0;
+			}
+			body{
+				width: 100vw;		/*浏览器宽度的100%*/
+				height: 100vh;
+				overflow: hidden;
+			}
+			#wrap{
+				width: 980px;
+				height:500px;
+				position: absolute;
+				/*margin: 100px auto;*/
+				top: 100px;
+				left: 50%;
+				margin-left: -490px;
+			}
+		</style>
+		<script src="../../js/jquery-1.11.3.min.js"></script>
+		<script>
+		$(function(){
+			
+			
+			/*function run(){
+				var a=10,b=20;		//等于var a=10;var b=20;
+				var c=d=e=50;		//等于var c=50;d=50;e=50;
+				console.log(c,d,e)
+			}
+			run()
+			console.log(a)
+			console.log(b)
+			console.log(d,e)*/
+			/*for(var i=0;i<xNum*yNum;i++){
+				
+			}*/
+			var xNum = 15;							//小盒子个数
+			var yNum = 15;							//小盒子宽高
+			var w = 980/xNum;						
+			var h = 500/yNum;
+			for(var i=0,len=xNum*yNum;i<len;i++){	//遍历小盒子
+				var x = i%xNum;						//表示小盒子坐标
+				var y = parseInt( i/xNum );
+				$('<div>').css({					//创建小盒子   并写css
+					"width":w,
+					"height":h,
+					"position":"absolute",
+					"top":y*h,
+					"left":x*w,
+					"background-image":"url(../img/11.jpg)",
+					"background-position":-x*w+"px "+(-y*h)+"px",
+				}).appendTo('#wrap');
+			};
+			
+			
+			function disperse(){
+				$('#wrap div').each(function(){
+					//位置不同，时间不同
+					var l = Math.random()*6000-3000;				//-3000~3000
+					var t = Math.random()*6000-3000;				//-3000~3000
+					var time = Math.random()*3+1			//1~3s		1 2 3
+					
+					$(this).css({
+						"transition":"all "+time+"s ease-in",
+//						"transition":"all 2s ease-in",
+						"transform":"translate("+l+"px,"+t+"px)",
+						"opacity":0,
+						
+					})
+				})
+			};
+			
+			
+			
+			function together(){
+				$('#wrap div').each(function(){
+					$(this).css({
+						"transform":"translate(0,0)",
+						"opacity":1,
+					})
+				})
+			}
+			
+			
+			var isTogether = true;
+			$(document).click(function(){
+				if(isTogether){
+					disperse()
+				}else{
+					together()
+				}
+				isTogether=!isTogether;
+			})
+			
+		})
+		
+		
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<!--<img src="../img/0.jpg">-->
+		</div>
+	</body>
+</html>

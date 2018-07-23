@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				overflow: hidden;
+				width: 100vw;
+				height: 100vh;
+			}
+			.icons{
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+				text-align: center;
+			}
+			.icons img{
+				width: 64px;
+				border-radius: 50%;
+				margin: 0 20px;
+			}
+		</style>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div class="icons">
+			<img class="ball" src="img1/05.jpg"/>
+			<img class="ball" src="img1/06.jpg"/>
+			<img class="ball" src="img1/04.jpg"/>
+			<img class="ball" src="img1/03.jpg"/>
+			<img class="ball" src="img1/02.jpg"/>
+			<img class="ball" src="img1/01.jpg"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(document).mousemove(function(ev){
+			$(".ball").each(function(){
+				var a=$(this).offset().left+$(this).outerWidth()/2-ev.pageX;
+				var b=$(this).offset().top+$(this).outerHeight()/2-ev.pageY;
+				var c=Math.sqrt(a*a+b*b)
+				if(c>300){
+					$(this).css({
+						"width":64
+					})
+				}else{
+					var dd=(300-c)/300+1;
+					$(this).css({
+						"width":64*dd
+					})
+				}
+			})
+		})
+	</script>
+</html>
