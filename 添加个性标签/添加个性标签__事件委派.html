@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>事件委托_添加个性标签</title>
+<style>
+*{ margin:0; padding:0}
+.main{ width:540px; margin:100px auto;}
+h4{ padding-bottom:5px;}
+#box{height:200px;border:1px solid #000; padding:5px;}
+button{ width:100px; height:40px; margin-top:10px}
+#box p{width:100px; border:1px solid #ccc; float:left; padding:10px; margin:5px;position:relative}
+span{ position:absolute; top:10px; right:5px; font-size:16px; cursor:pointer}
+</style>
+
+</head>
+
+<body>
+	<div class="main">
+    	<h4>我的标签</h4>
+    	<div id="box">
+        	<!--<p data-type="type1">宅男<span>×</span></p>
+        	<p>吃货<span>×</span></p>
+        	<p>驴友<span>×</span></p>
+        	<p>IT达人<span>×</span></p>
+        	<p>麦霸<span>×</span></p>-->
+        </div>
+        <p style="text-align:center">
+            <button type="button" data-type="type1">宅男</button>
+            <button type="button" data-type="type2">吃货</button>
+            <button type="button" data-type="type3">驴友</button>
+            <button type="button" data-type="type4">IT达人</button>
+            <button type="button" data-type="type5">麦霸</button>
+        </p>
+    </div>
+</body>
+</html>
+<script>
+	var aBtn=document.getElementsByTagName('button');
+	var oBox=document.getElementById('box');
+	
+	//setAttribute
+	//getAttribute
+	//for(){}
+	//添加DOM元素
+	//删除DOM元素
+	
+	//给按钮绑定点击事件
+	//  1  创建p，输入p内容，保留（把p扔进box）
+	//  2 读取自定义属性，给oP设置自定义属性，
+	
+	for (var i=0;i<aBtn.length;i++){
+		aBtn[i].onclick=function(){
+			var oP=document.createElement("p");//1
+			var attr1=this.getAttribute("data-type");//2
+			oP.innerHTML=this.innerHTML+"<span>×</span>";//1
+			oP.setAttribute("data-type",attr1);//2
+			var aP=oBox.getElementsByTagName("p");
+			for (var j=0;j<aP.length;j++){
+				if(aP[j].getAttribute("data-type")==attr1){
+					alert("该标签已经存在");
+					return;
+				}
+			}
+			oBox.appendChild(oP);//1
+			/*var aSpan=document.getElementsByTagName("span");
+			for(var j=0;j<aSpan.length;j++){
+				aSpan[j].onclick=function(){
+					oBox.removeChild(this.parentNode)
+				}
+			}*/
+		}
+	}
+	oBox.onclick=function(ev){
+		if(ev.target.tagName=="SPAN"){
+			this.removeChild(ev.target.parentNode)
+		}
+	}
+	
+	
+	
+
+</script>
