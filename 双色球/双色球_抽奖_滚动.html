@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0}
+ul{ list-style:none}
+.lucky_box{ width:500px; height:300px; border:1px solid red; border-radius:5px; padding:20px; margin:100px auto}
+h2{ text-align:center; height:60px; color:red}
+#lucky_ball_list{ height:50px; padding-left:65px; margin-bottom:30px;}
+#lucky_ball_list li{ float:left; height:40px; line-height:40px; width:40px; text-align:center; font-size:24px; border:2px solid red; margin-right:20px; color:red}
+button{ height:40px; width:100px}
+p{ word-break:break-all; font-size:20px; padding:10px; color:#333;}
+</style>
+
+<title>双色球</title>
+
+</head>
+
+<body>
+<div id="box" class="lucky_box">
+
+	<h2>双色球大开奖</h2>
+    <ul id="lucky_ball_list">
+    	<li>祝</li><li>你</li><li>发</li><li>大</li><li>财</li><li>!</li>
+    </ul>
+    
+    <div style=" text-align:center"><button id="btn" type="button">开始</button></div>
+    <p id="info"></p>
+</div>
+
+<script type="text/javascript">
+	var oBtn=document.getElementById("btn");
+	var aLi=document.getElementById("lucky_ball_list").children;
+	var oInfo=document.getElementById("info");
+	var num=0;
+	var onOff=true;
+	var timer;
+	var timer1;
+	var arr = [];		//01-33
+	for(var i=1;i<=33;i++){
+		i=i<10? "0"+i : ""+i
+		arr.push(i);
+	}
+	
+	oBtn.onclick=function(){
+		if(onOff){
+			onOff=false;
+			timer=setInterval(function(){
+				for(var i=0;i<6;i++){
+					var num=parseInt(Math.random()*arr.length);
+					aLi[i].innerHTML=arr[num];
+				}
+			},50)
+			timer1=setTimeout(function(){
+				clearInterval(timer);
+				arr.splice(num,1);
+				oInfo.innerHTML=arr;
+			},3000)
+		}
+		
+	}
+	
+	
+	
+	function run(n){
+		
+	}
+	
+</script>
+	
+</body>
+</html>

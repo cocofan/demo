@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{ margin:100px auto; border:1px solid #ccc; width:400px; text-align:center; padding:30px;}
+input{ width:200px; height:50px; font-size:50px; text-align:center; margin-bottom:20px; padding:30px; border-radius:10px}
+button{ height:40px; width:60px;}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var arr = ["张文凯", "高伟平", "支振宇", "刘永", "赵洋洋", "郭馨阳", "高文涛", "李旭", "王瑞", "孙丹利", "朱凯元", "田静", "马笑", "梁宇", "田鑫", "范云舰", "李伟", "杨斌", "王嘉仲"];
+	var aBtn = document.getElementsByTagName('button');
+	var oTxt = document.getElementsByTagName('input')[0];
+	var timer;
+	var onOff=true;
+	aBtn[0].onclick=function(){
+		if(onOff){
+			onOff=false;
+			timer=setInterval(function(){
+				var num=parseInt(Math.random()*arr.length);//犯错了
+				oTxt.value=arr[num]
+			},100)
+		}
+	}
+	
+	aBtn[1].onclick=function(){
+		clearInterval(timer)
+		onOff=true;
+	}
+}
+</script>
+</head>
+
+<body>
+<div>
+	<h2>今天该谁买冰棍？</h2>
+	<input type="text" readonly value="谁？">
+    <br>
+	<button type="button">开始</button>
+	<button type="button">停</button>
+
+</div>
+</body>
+</html>
