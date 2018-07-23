@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		*{ margin: 0;padding: 0;}
+		ul{ list-style: none;}
+		#box{ overflow: hidden;width: 600px; height: 260px;margin:0 auto; border: 1px #008000 solid;position: relative;}
+		#box ul{width: 2000px ; position: absolute;left: 0;top: 0;}
+		#box ul li{ float: left;}
+	</style>
+</head>
+<body>
+<div id="box">
+	<ul>
+    	<li><img src="images/01.jpg" /></li>
+    	<li><img src="images/02.jpg" /></li>
+    	<li><img src="images/03.jpg" /></li>
+    	<li><img src="images/04.jpg" /></li>
+    	<li><img src="images/05.jpg" /></li>
+    	<li><img src="images/01.jpg" /></li>
+    	<li><img src="images/02.jpg" /></li>
+    	<li><img src="images/03.jpg" /></li>
+    	<li><img src="images/04.jpg" /></li>
+    	<li><img src="images/05.jpg" /></li>
+    </ul>
+</div>
+</body>
+	<script type="text/javascript">
+		var oBox = document.getElementById("box");
+		var oUl=document.getElementsByTagName('ul')[0];
+		var aLi = oUl.children;
+		var timer;
+		function run(){
+			oUl.style.width=4000+"px";
+			timer=setInterval(function(){
+				var l = oUl.offsetLeft - 10;		
+				if(l==-2000){
+					l=0;
+				}
+				oUl.style.left = l+'px';
+			},30)
+		};
+		run()
+		oUl.onmouseenter=function(){
+			clearInterval(timer);
+		};
+		oUl.onmouseleave=function(){
+			run()
+		}
+		
+		
+		
+		
+			
+		
+		
+		
+		
+		
+	</script>
+</html>
