@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			ul,li{list-style: none;}
+			.wrap{
+				width: 200px;
+				border-left: 6px solid aqua;
+				margin: 0 auto;
+			}
+			.year h3{
+				width: 80px;
+				height: 80px;
+				background: lightgreen;
+				border: 6px solid #fff;
+				border-radius: 50%;
+				margin-left: -49px;
+				text-align: center;
+				line-height: 80px;
+			}
+			.month h4{
+				width: 50px;
+				height: 50px;
+				background: lightsalmon;
+				border: 4px solid #fff;
+				border-radius: 50%;
+				margin-left: -33px;
+				text-align: center;
+				line-height: 50px;
+				margin-top: 30px;
+			}
+			.month dl{
+				position: relative;
+				margin-top: 20px;
+			}
+			.month dl dt{
+				position: absolute;
+				top: 0;
+				left: -60px;
+			}
+			.month dl dd{
+				background: #ccc;
+				margin-left: 20px;
+				padding: 10px;
+			}
+			.month dl::after{
+				content: "";
+				display: block;
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 0;
+				left: -13px;
+				background: darkviolet;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<!--<div class="year">
+				<h3>2018</h3>
+				<ul>
+					<li class="month">
+						<h4>二月</h4>
+						<dl>
+							<dt>26日</dt>
+							<dd>来学校报到</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>-->
+		</div>
+	</body>
+	<script type="text/javascript">
+		var myJson={
+			"years":[
+				{
+					"year":2018,
+					"months":[
+						{
+							"month":"2月",
+							"days":[
+								{"day":"26日","cont":"今天开学第一天"},
+								{"day":"26日","cont":"今天开学第二天"},
+								{"day":"26日","cont":"今天开学第三天"}
+							]
+						}
+					]
+				},
+				{
+					"year":2019,
+					"months":[
+						{
+							"month":"2月",
+							"days":[
+								{"day":"26日","cont":"今天开学第一天"},
+								{"day":"26日","cont":"今天开学第二天"},
+								{"day":"26日","cont":"今天开学第三天"}
+							]
+						}
+					]
+				},
+			]
+		}
+		var oWrap=document.getElementsByClassName("wrap")[0];
+		var oYear=document.createElement("div");
+		oYear.className="year";
+		oWrap.appendChild(oYear);
+		var str="";
+		for (var i=0;i<myJson.years.length;i++){
+			str+='<h3>'+myJson.years[i].year+'</h3>'+
+				'<ul>';
+					for(var j=0;j<myJson.years[i].months.length;j++){
+						str+='<li class="month">'+
+						'<h4>'+myJson.years[i].months[j].month+'</h4>';
+							for(var z=0;z<myJson.years[i].months[j].days.length;z++){
+								str+='<dl>'+
+										'<dt>'+myJson.years[i].months[j].days[z].day+'</dt>'+
+										'<dd>'+myJson.years[i].months[j].days[z].cont+'</dd>'+
+									'</dl>'
+							}
+						str+='</li>';	
+					}
+				str+='</ul>'	
+		}
+		oYear.innerHTML=str;
+	</script>
+</html>
