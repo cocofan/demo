@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#wrap{
+				width: 200px;
+				height: 200px;
+				position: relative;
+				margin: 100px auto;
+				transform-style: preserve-3d;
+				/*perspective: 3000px;*/
+				animation: run 3s linear infinite;
+			}
+			.box{
+				width: 200px;
+				height: 200px;
+				opacity: 0.7;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.box:nth-child(1){
+				background: #f00;
+				transform: translateZ(100px);
+			}
+			.box:nth-child(2){
+				background: #F4A460;
+				transform: rotateX(90deg) translateZ(100px);
+			}
+			.box:nth-child(3){
+				background: yellow;
+				transform: rotateX(180deg) translateZ(100px);
+			}
+			.box:nth-child(4){
+				background: green;
+				transform: rotateX(270deg) translateZ(100px);
+			}	
+			.box:nth-child(5){
+				background: greenyellow;
+				transform: rotateY(90deg) translateZ(100px);
+			}
+			.box:nth-child(6){
+				background: blueviolet;
+				transform: rotateY(-90deg) translateZ(100px);
+			}
+			@keyframes run{
+				0%{transform: rotateX(0deg) rotateY(0deg);}
+				100%{transform: rotateX(360deg) rotateY(360deg);}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div>
+	</body>
+</html>

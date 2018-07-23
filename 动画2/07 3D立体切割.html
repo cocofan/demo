@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.wrap{
+				width: 980px;
+				height: 500px;
+				position: relative;
+				margin: 100px auto;
+				transform-style: preserve-3d;
+				perspective: 3000px;
+				/*transform: rotateX(25deg) rotateY(25deg);*/
+			}
+			.wrap .pic{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var divCount=20;
+		var w=980/divCount;
+		$('.item').each(function(index){
+			for(var i=0;i<divCount;i++){
+				$('<div>').addClass('pic').css({
+					"width":w,
+					"height":500,
+					"left":i*w,
+					"background-image":"url(img/"+index+".jpg)",
+					"background-position":-w*i+"px 0",
+					"transform":"rotateX("+index*90+"deg) translateZ(250px)",
+					"transition":"transform 0.5s "+i*0.05+"s"
+				}).appendTo($(this))
+			}
+		})
+		var num=0;
+		$('.wrap').click(function(){
+			num++;
+			$('.item').each(function(i){
+				var deg=i*90-num*90;
+				$(this).find('.pic').css({
+					"transform":"rotateX("+deg+"deg) translateZ(250px)"
+				})
+			})
+		})
+	</script>
+</html>
